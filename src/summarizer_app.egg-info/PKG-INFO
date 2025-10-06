@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: summarizer-app
+Version: 0.1.0
+Summary: PDF summarizer with Groq LLM
+Requires-Python: >=3.10
+Requires-Dist: streamlit>=1.38.0
+Requires-Dist: langchain>=0.3.0
+Requires-Dist: langchain-groq>=0.2.0
+Requires-Dist: langchain-core>=0.3.0
+Requires-Dist: pypdf>=4.3.0
+Requires-Dist: python-dotenv>=1.0.1
+Provides-Extra: test
+Requires-Dist: pytest>=8.0.0; extra == "test"
+Requires-Dist: pytest-cov>=4.1.0; extra == "test"
+Requires-Dist: pytest-mock>=3.12.0; extra == "test"
+Requires-Dist: reportlab>=4.0.0; extra == "test"
