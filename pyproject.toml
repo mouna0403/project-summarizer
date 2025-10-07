@@ -10,14 +10,17 @@ dependencies = [
     "langchain-groq>=0.2.0",
     "langchain-core>=0.3.0",
     "pypdf>=4.3.0",
-    "python-dotenv>=1.0.1"
+    "python-dotenv>=1.0.1",
+    "pillow>=10.0.0",          # For image processing (OCR / PDF images)
+    "pytesseract>=0.3.10",     # OCR library
+    "pdf2image>=1.16.3",       # Convert PDF pages to images
 ]
 
 [project.optional-dependencies]
 # Dependencies for testing
 test = [
     "pytest>=8.0.0",
-    "pytest-cov>=4.1.0",      # For code coverage
+    "pytest-cov>=4.1.0",       # For code coverage
     "pytest-mock>=3.12.0",     # For mocks
     "reportlab>=4.0.0",        # For creating test PDFs
 ]
