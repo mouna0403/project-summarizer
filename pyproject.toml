@@ -2,8 +2,9 @@
 name = "summarizer-app"
 version = "0.1.0"
 description = "PDF summarizer with Groq LLM"
-requires-python = ">=3.10"
+requires-python = ">=3.11,<4"
 
+# Main dependencies
 dependencies = [
     "streamlit>=1.38.0",
     "langchain>=0.3.0",
@@ -11,18 +12,31 @@ dependencies = [
     "langchain-core>=0.3.0",
     "pypdf>=4.3.0",
     "python-dotenv>=1.0.1",
-    "pillow>=10.0.0",          # For image processing (OCR / PDF images)
+    "pillow>=10.0.0",          # Image processing (OCR / PDF images)
     "pytesseract>=0.3.10",     # OCR library
     "pdf2image>=1.16.3",       # Convert PDF pages to images
+    "python-docx>=1.1.2",      # For reading DOCX (Word) files
+    "pandas>=2.2.2",           # For reading CSV files
+    "numpy>=1.26.4",           # Required dependency for pandas
+    "reportlab>=4.0.0",        # For creating PDFs (needed for tests)
 ]
 
 [project.optional-dependencies]
-# Dependencies for testing
 test = [
     "pytest>=8.0.0",
     "pytest-cov>=4.1.0",       # For code coverage
     "pytest-mock>=3.12.0",     # For mocks
-    "reportlab>=4.0.0",        # For creating test PDFs
+]
+
+[tool.poetry.group.test.dependencies]
+pytest = ">=8.0.0"
+pytest-cov = ">=4.1.0"
+pytest-mock = ">=3.12.0"
+
+# Tell Poetry where your package lives
+[tool.poetry]
+packages = [
+    { include = "project_summarizer", from = "src" }
 ]
 
 [tool.uv]
