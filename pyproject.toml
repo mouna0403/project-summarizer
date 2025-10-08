@@ -2,8 +2,9 @@
 name = "summarizer-app"
 version = "0.1.0"
 description = "PDF summarizer with Groq LLM"
-requires-python = ">=3.12,<4"  # Changed to match the ReportLab Python compatibility
+requires-python = ">=3.12,<4"
 
+# Main dependencies
 dependencies = [
     "streamlit>=1.38.0",
     "langchain>=0.3.0",
@@ -25,6 +26,12 @@ test = [
     "pytest>=8.0.0",
     "pytest-cov>=4.1.0",       # For code coverage
     "pytest-mock>=3.12.0",     # For mocks
+]
+
+# Tell Poetry where your package lives
+[tool.poetry]
+packages = [
+    { include = "projet_summarizer", from = "src" }
 ]
 
 [tool.uv]
