@@ -2,7 +2,7 @@
 name = "summarizer-app"
 version = "0.1.0"
 description = "PDF summarizer with Groq LLM"
-requires-python = ">=3.12,<4"
+requires-python = ">=3.11,<4"
 
 # Main dependencies
 dependencies = [
@@ -31,7 +31,7 @@ test = [
 # Tell Poetry where your package lives
 [tool.poetry]
 packages = [
-    { include = "projet_summarizer", from = "src" }
+    { include = "project_summarizer", from = "src" }
 ]
 
 [tool.uv]
