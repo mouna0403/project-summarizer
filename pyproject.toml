@@ -33,7 +33,11 @@ pytest = ">=8.0.0"
 pytest-cov = ">=4.1.0"
 pytest-mock = ">=3.12.0"
 
-
+# Tell Poetry where your package lives
+[tool.poetry]
+packages = [
+    { include = "project_summarizer", from = "src" }
+]
 
 [tool.uv]
 package = true
