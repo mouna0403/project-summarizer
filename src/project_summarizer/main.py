@@ -6,7 +6,9 @@ Streamlit app for uploading files and generating multi-level summaries with Groq
 import os
 
 import streamlit as st
+from langchain_core.documents import Document
 
+from project_summarizer.utils.answer_question import answer_question, create_qa_chain
 from project_summarizer.utils.downloader import extract_text_from_file
 from project_summarizer.utils.summarizer import summarize_text
 
@@ -18,11 +20,12 @@ st.markdown(
     "Upload PDF, DOCX, TXT, or CSV and generate multi-level summaries: brief, standard, detailed."
 )
 
-# Verify the API key is available (injected via Docker or environment)
+# --- Verify GROQ API Key ---
 api_key = os.getenv("GROQ_API_KEY")
 if not api_key:
     st.error(
-        "Missing GROQ_API_KEY environment variable. Please set it in Docker or your environment."
+        "Missing GROQ_API_KEY environment variable. "
+        "Please set it in Docker or your environment."
     )
     st.stop()
 
@@ -36,6 +39,7 @@ summary_level = st.radio(
     index=1,  # Default to "standard"
 )
 
+# --- Process uploaded file ---
 if uploaded_file:
     st.info("Extracting text from file...")
     text = extract_text_from_file(uploaded_file)
