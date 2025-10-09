@@ -19,12 +19,19 @@ def create_qa_chain():
     """
     llm = ChatGroq(model="llama-3.1-8b-instant", api_key=os.getenv("GROQ_API_KEY"))
 
-    # Standard Q&A prompt
+    # English prompt, with instructions to reply in the same language as the question
     prompt = ChatPromptTemplate.from_messages(
         [
             (
                 "system",
-                "Answer the user question based on the provided context:\n\n{context}",
+                "You are a precise and factual assistant. "
+                "Answer the user's question *only* using the information from the provided context below. "
+                "Do not include any information that is not present in the context. "
+                "If the answer cannot be found, respond exactly with: "
+                "'I cannot find this information in the provided document.'\n\n"
+                "Respond in the **same language** as the user's question.\n\n"
+                "Context:\n{context}\n\n"
+                "Question: {question}",
             )
         ]
     )

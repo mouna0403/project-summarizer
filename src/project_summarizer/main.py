@@ -9,8 +9,7 @@ import os
 import streamlit as st
 from langchain_core.documents import Document
 
-from project_summarizer.utils.answer_question import (answer_question,
-                                                      create_qa_chain)
+from project_summarizer.utils.answer_question import answer_question, create_qa_chain
 from project_summarizer.utils.downloader import extract_text_from_file
 from project_summarizer.utils.summarizer import summarize_text
 
@@ -73,7 +72,9 @@ if uploaded_file:
             if user_question:
                 with st.spinner("Generating answer..."):
                     try:
-                        answer = answer_question(chain, [summary], user_question)
+                        answer = answer_question(
+                            chain, [Document(page_content=text)], user_question
+                        )
                         st.markdown(f"**Answer:** {answer}")
                     except Exception as e:
                         st.error(f"An error occurred while answering the question: {e}")
