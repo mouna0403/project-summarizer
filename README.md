@@ -60,8 +60,3 @@ Make sure your .env file contains a valid Groq API key.
 3. View the generated summary.
 4. Ask questions interactively about the content — the answers are based solely on the summarized text.
 5. The Q&A system automatically replies in the same language as the question.
-
-                          # Groq API key (not committed)
-├── Dockerfile                         # Docker image build instructions
-└── README.md                          # This file
-```
